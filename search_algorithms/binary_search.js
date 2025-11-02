@@ -1,3 +1,6 @@
+// Big O Notation: O(log n) - Binary Search Algorithm Because it divides the search space in half with each iteration.
+// Description: This function performs a binary search on a sorted array to find the index of a target value.
+
 let a = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91];
 
 function binarySearch(arr, target) {
