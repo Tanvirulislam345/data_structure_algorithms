@@ -13,10 +13,10 @@ function binarySearch(arr, target) {
 
     if (arr[mid] === target) {
       return mid; // Target found
-    } else if (arr[mid] < target) {
-      start = mid + 1; // Search in the right half
+    } else if (target < arr[mid]) {
+      end = mid - 1; // Search in the right half
     } else {
-      end = mid - 1; // Search in the left half
+      start = mid + 1; // Search in the left half
     }
   }
 
@@ -24,7 +24,7 @@ function binarySearch(arr, target) {
 }
 
 // Example usage:
-let target = 23;
+let target = 333;
 let result = binarySearch(a, target);
 if (result !== -1) {
   console.log(`Element found at index: ${result} = ${a[result]}`);
