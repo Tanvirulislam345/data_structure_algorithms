@@ -1,11 +1,11 @@
 // Big O Notation: O(log n) - Binary Search Algorithm Because it divides the search space in half with each iteration.
 // Description: This function performs a binary search on a sorted array to find the index of a target value.
 
-let a = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91];
+let list = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91];
 
 function binarySearch(arr, target) {
   if (!Array.isArray(arr) || arr.length === 0) {
-    return -1; // Invalid input
+    return -1;
   }
 
   let start = 0;
@@ -13,24 +13,27 @@ function binarySearch(arr, target) {
 
   while (start <= end) {
     let mid = Math.floor((start + end) / 2);
-
-    if (arr[mid] === target) {
-      return mid; // Target found
-    } else if (target < arr[mid]) {
-      end = mid - 1; // Search in the right half
+    const midValue = arr[mid];
+    if (target === midValue) {
+      return mid;
+    } else if (target < midValue) {
+      end = mid - 1;
     } else {
-      start = mid + 1; // Search in the left half
+      start = mid + 1;
     }
   }
 
-  return -1; // Target not found
+  return -1;
 }
 
-// Example usage:
-let target = 333;
-let result = binarySearch(a, target);
-if (result !== -1) {
-  console.log(`Element found at index: ${result} = ${a[result]}`);
-} else {
-  console.log("Element not found in the array.");
+function findResult(value) {
+  if (value !== -1) {
+    console.log(`Element found at index: ${value} = ${list[value]}`);
+  } else {
+    console.log("Element not found in the array.");
+  }
 }
+
+findResult(binarySearch(list, 23)); // Element found at index: 5 = 23
+findResult(binarySearch(list, 19));
+findResult(binarySearch(list, 91));
